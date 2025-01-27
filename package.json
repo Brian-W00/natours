@@ -4,11 +4,13 @@
   "description": "learning express",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js",
-    "debug": "ndb server.js",
-    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+   "predeploy": "npm run build",
+   "start": "nodemon server.js",
+   "start:prod": "NODE_ENV=production nodemon server.js",
+   "build": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+   "deploy": "gh-pages -b master -d public",
+   "debug": "ndb server.js",
+   "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "author": "Brian Wei",
   "license": "ISC",
