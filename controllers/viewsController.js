@@ -58,6 +58,21 @@ exports.getLoginForm = (req, res) => {
 };
 
 
+exports.getSignupForm = (req, res) => {
+    res
+        .status(200)
+        .set(
+            'Content-Security-Policy',
+            // "connect-src 'self' https://cdnjs.cloudflare.com"
+            "default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;"
+        )
+        .render('signup', {
+        title: 'Sign up your account'
+        });
+};
+
+
+
 exports.getAccount = (req, res) => {
     res
         .status(200)
